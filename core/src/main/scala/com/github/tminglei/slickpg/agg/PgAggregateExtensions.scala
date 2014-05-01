@@ -51,6 +51,8 @@ trait PgAggregateExtensions { driver: PostgresDriver =>
 
   trait PgAggregateFunctions {
     // General-Purpose Aggregate Functions
+    abstract class UnaryAggFuncPartsBasic[A, B](a: Any)
+    abstract class BinaryAggFuncPartsBasic[A, B](a: Any)
     case class Avg[T]() extends UnaryAggFuncPartsBasic[T, T](AggregateLibrary.Average)
     case class Max[T]() extends UnaryAggFuncPartsBasic[T, T](AggregateLibrary.Maximum)
     case class Min[T]() extends UnaryAggFuncPartsBasic[T, T](AggregateLibrary.Minimum)
